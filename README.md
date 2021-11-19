@@ -9,10 +9,10 @@
 **RN**
 * Regra de negócio
 
-# Cadastrar Deal na PipeDrive
+<!-- # Cadastrar Deal na PipeDrive
 * Deve ser possivel criar um Deal na PipeDrive consumindo a API.
 * 
-**RNF**
+**RNF** -->
 
 # Transformar Deal da PipeDrive em Order na Bling
 * Dever ser possivel criar um pedido na Bling consumindo a API do PipeDrive
