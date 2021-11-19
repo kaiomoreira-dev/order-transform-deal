@@ -1,7 +1,7 @@
 # Guia
 
 **RF**
-* Requisito Funcional
+* Requisito Funcionall
 
 **RNF**
 * Requisito não Funcional
