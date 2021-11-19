@@ -1,10 +1,11 @@
 {
-  "name": "orderTransformDeal",
+  "name": "order-transform-deal",
   "version": "1.0.0",
   "main": "index.js",
   "author": "<kaio_smoreira@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^8.2.0",
     "typescript": "^4.5.2"
   }
 }
