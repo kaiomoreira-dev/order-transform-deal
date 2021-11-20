@@ -1,0 +1,3 @@
+interface ICreateOrderDTO {}
+
+export { ICreateOrderDTO };
