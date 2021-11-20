@@ -4,14 +4,16 @@ import { IDealDTO } from "../../dtos/IDealDTO";
 
 async function getDealInfo(): Promise<IDealDTO> {
   const response = await axios.get(
-    `https://api.pipedrive.com/v1/deals/?api_token=cb56f8ed2d027b2f539e93112e73ac474b00ea77`
+    `${process.env.PIPEDRIVE_URL}${process.env.PIPEDRIVE_API_KEY}`
   );
   const data = response.data.data[2] as IDealDTO;
 
   return data;
 }
 
-async function getDealItem(): Promise<IDealItem>;
+// async function getDealItem(): Promise<void> {
+//   const response = await axios.get();
+// }
 
 class CreateOrderByDealUseCase {
   //   constructor() {
