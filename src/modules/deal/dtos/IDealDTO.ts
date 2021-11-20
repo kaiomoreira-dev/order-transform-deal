@@ -1,4 +1,5 @@
 interface IDealDTO {
+  id: number;
   title: string;
   value: number;
   status: string;
