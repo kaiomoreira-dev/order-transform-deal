@@ -6,7 +6,7 @@ async function getDeal(): Promise<IDealDTO> {
   const response = await axios.get(
     `https://api.pipedrive.com/v1/deals/?api_token=cb56f8ed2d027b2f539e93112e73ac474b00ea77`
   );
-  const data = response.data.data[0] as IDealDTO;
+  const data = response.data.data as IDealDTO;
 
   return data;
 }
@@ -17,6 +17,8 @@ class CreateOrderByDealUseCase {
 
   async execute(): Promise<void> {
     const deal = await getDeal();
+
+    console.log(deal);
 
     const {
       title,
