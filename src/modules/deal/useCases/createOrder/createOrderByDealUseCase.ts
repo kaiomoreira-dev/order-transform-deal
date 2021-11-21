@@ -6,13 +6,44 @@ async function getDealInfo(): Promise<IDealDTO> {
   const response = await axios.get(
     `${process.env.PIPEDRIVE_URL}${process.env.PIPEDRIVE_API_KEY}`
   );
-  const data = response.data.data[2] as IDealDTO;
 
-  return data;
+  const { data } = response.data;
+
+  if (data.length === null) {
+    throw new Error("No have deal!");
+  }
+
+  const deal = data.map((element) => {
+    if (element.status === "won") {
+      const {
+        id,
+        title,
+        value,
+        status,
+        products_count,
+        org_name,
+        person_name,
+        next_activity_subject,
+      } = element as IDealDTO;
+      const dealWon = {
+        id,
+        title,
+        value,
+        status,
+        products_count,
+        org_name,
+        person_name,
+        next_activity_subject,
+      };
+      return dealWon;
+    }
+    return deal;
+  });
+  return deal;
 }
 
 // async function getDealItem(): Promise<void> {
-//   const response = await axios.get();
+//   const response = await axios.get(``);
 // }
 
 class CreateOrderByDealUseCase {
@@ -20,33 +51,10 @@ class CreateOrderByDealUseCase {
   //   }
 
   async execute(): Promise<void> {
-    const deal = await getDealInfo();
+    const dealInfo = await getDealInfo();
+    console.log(dealInfo);
 
-    console.log(deal);
-
-    const {
-      id,
-      title,
-      value,
-      status,
-      products_count,
-      org_name,
-      person_name,
-      next_activity_subject,
-    } = deal as IDealDTO;
-
-    const dealWon = {
-      id,
-      title,
-      value,
-      status,
-      products_count,
-      org_name,
-      person_name,
-      next_activity_subject,
-    };
-
-    console.log(dealWon);
+    // console.log(dealWon);
   }
 }
 
